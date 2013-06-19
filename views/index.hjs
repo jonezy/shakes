@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <p>Welcome to {{ title }}</p>
+    <a href="https://api.moves-app.com/oauth/v1/authorize?response_type=code&client_id=Zq7V9Au1lCPlJy0isXpOVy1Si5EM9U3G&scope=activity location">Authorize</a>
+  </body>
+</html>
