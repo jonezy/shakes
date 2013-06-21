@@ -1,13 +1,19 @@
 {
-  "name": "application-name",
+  "name": "shakes",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonezy/shakes.git"
+  },
+  "test": "mocha -w -R nyan",
   "dependencies": {
     "express": "3.2.6",
     "hjs": "*",
-    "node-oauth":">= 0.1.3"
+    "node-oauth": ">= 0.1.3",
+    "mocha": "~1.11.0"
   }
 }
