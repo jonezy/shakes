@@ -74,13 +74,6 @@ describe("shakes.authorize()", function() {
   });
 
   describe('with missing option', function() {
-    describe('redirect_uri', function() {
-      it('should throw an error', function() {
-        assert.throws(function() {
-          moves.authorize();
-        }, Error);
-      });
-    });
     describe('scope', function() {
       it('should throw an error', function() {
         assert.throws(function() {
@@ -88,5 +81,33 @@ describe("shakes.authorize()", function() {
         }, Error);
       });
     });
+  });
+});
+
+describe('shakes.token()', function() {
+  var moves;
+  beforeEach(function() {
+    moves = new Shakes(validOpts);
+  });
+
+  describe('with valid options', function() {
+    it('should run without error', function() {
+      assert.doesNotThrow( function() {moves.token({'code':'1234'}); }, Error);
+    });
+  });
+
+  describe('with missing options', function() {
+    describe('no options', function() {
+      it('should return an error', function() {
+        assert.throws(function() { moves.token(); }, Error);
+      });
+
+    });
+    describe('code option', function() {
+      it('should return an error', function() {
+        assert.throws(function() { moves.token({});}, Error);
+      });
+    });
+
   });
 });
