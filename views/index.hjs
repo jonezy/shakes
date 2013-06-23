@@ -8,5 +8,6 @@
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
     <a href="{{ auth_url }}">Authorize</a>
+    <p>{{token}}</p>
   </body>
 </html>

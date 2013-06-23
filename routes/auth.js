@@ -12,7 +12,15 @@ exports.token = function(req, res) {
   var moves = new Shakes(shakesOpts);
   if(req.query.code) {
     moves.token({'code':req.query.code}, function(t) {
-      res.render('token', {'title': 'Token info','token':t});
+      res.clearCookie('m_token');
+      res.clearCookie('m_rtoken');
+      res.clearCookie('m_uid');
+
+      res.cookie('m_token', t.access_token, { maxAge: 900000, httpOnly:true });
+      res.cookie('m_rtoken', t.refresh_token, { maxAge: 900000, httpOnly:true });
+      res.cookie('m_uid', t.user_id, { maxAge: 900000, httpOnly:true });
+
+      res.render('token', {'title': 'Token info','token':JSON.stringify(t)});
     });
   }
 };
