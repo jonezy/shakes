@@ -7,7 +7,7 @@
 
 var https = require('https');
 var qs = require('querystring');
-var Shakes = require('../lib/shakes');
+var Shakes = require('../../lib/shakes');
 
 exports.index = function(req, res){
   var t;

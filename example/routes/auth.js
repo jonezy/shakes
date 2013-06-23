@@ -1,7 +1,7 @@
 
 var https = require('https');
 var qs = require('querystring');
-var Shakes = require('../lib/shakes');
+var Shakes = require('../../lib/shakes');
 
 exports.token = function(req, res) {
   var shakesOpts = {
@@ -16,9 +16,10 @@ exports.token = function(req, res) {
       res.clearCookie('m_rtoken');
       res.clearCookie('m_uid');
 
-      res.cookie('m_token', t.access_token, { maxAge: 900000, httpOnly:true });
-      res.cookie('m_rtoken', t.refresh_token, { maxAge: 900000, httpOnly:true });
-      res.cookie('m_uid', t.user_id, { maxAge: 900000, httpOnly:true });
+      var expires = 14 * 24 * 3600000; // 2 weeks
+      res.cookie('m_token', t.access_token, {maxAge: expires});
+      res.cookie('m_rtoken', t.refresh_token, {maxAge: expires});
+      res.cookie('m_uid', t.user_id, {maxAge: expires});
 
       res.render('token', {'title': 'Token info','token':JSON.stringify(t)});
     });

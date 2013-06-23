@@ -17,7 +17,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hjs');
 app.use(express.cookieParser('omgwtf123409876'));
-app.use(express.cookieSession({secret:'omgwtf123409876'}));
+app.use(express.cookieSession({secret:'omgwtf123409876', cookie: {  path: '/', httpOnly: true, maxAge: 14 * 24 * 3600000 }}));
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
