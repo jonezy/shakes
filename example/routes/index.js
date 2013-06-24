@@ -12,6 +12,7 @@ var Shakes = require('../../lib/shakes');
 exports.index = function(req, res){
   var t,
       hasToken = false;
+
   if(req.cookies.m_token) {
     t = req.cookies.m_token;
     hasToken = true;

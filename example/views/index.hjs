@@ -9,9 +9,9 @@
     <p>Welcome to {{ title }}</p>
     <a href="{{ auth_url }}">Authorize</a>
 
-    {{#has_token}}
-    <h2>Current Token</h2>
-    <p>{{token}}</p>
-    {{/has_token}}
+    {{#token}}
+      <h2>Current Token</h2>
+      <p>{{token}}</p>
+    {{/token}}
   </body>
 </html>
