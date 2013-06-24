@@ -50,6 +50,10 @@ describe("shakes with non-empty constructor", function() {
       assert(moves, typeof(object), 'expected an object');
     });
 
+    it('should have endPoints property', function() {
+      assert(moves.endPoints, typeof(object), 'expected an object');
+    });
+
     it('should have a client_id property', function() {
       assert(moves.client_id, validOpts.client_id, 'client_id did not match');
     });

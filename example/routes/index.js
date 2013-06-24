@@ -10,10 +10,11 @@ var qs = require('querystring');
 var Shakes = require('../../lib/shakes');
 
 exports.index = function(req, res){
-  var t;
-  console.log(req.cookies);
+  var t,
+      hasToken = false;
   if(req.cookies.m_token) {
     t = req.cookies.m_token;
+    hasToken = true;
   }
 
   var shakesOpts = {
@@ -23,5 +24,6 @@ exports.index = function(req, res){
 
   var moves = new Shakes(shakesOpts);
   var auth_url = moves.authorize({'scope':'activity location'});
-  res.render('index', { title: 'Express', auth_url: auth_url, token: t });
+
+  res.render('index', { title: 'Express', auth_url: auth_url, token: t, has_token:hasToken });
 };

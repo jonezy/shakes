@@ -8,6 +8,10 @@
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
     <a href="{{ auth_url }}">Authorize</a>
+
+    {{#has_token}}
+    <h2>Current Token</h2>
     <p>{{token}}</p>
+    {{/has_token}}
   </body>
 </html>

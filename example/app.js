@@ -26,7 +26,6 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/auth/token', auth.token);
 
 http.createServer(app).listen(app.get('port'), function(){

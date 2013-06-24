@@ -19,7 +19,6 @@ exports.token = function(req, res) {
       var expires = 14 * 24 * 3600000; // 2 weeks
       res.cookie('m_token', t.access_token, {maxAge: expires});
       res.cookie('m_rtoken', t.refresh_token, {maxAge: expires});
-      res.cookie('m_uid', t.user_id, {maxAge: expires});
 
       res.render('token', {'title': 'Token info','token':JSON.stringify(t)});
     });
