@@ -26,5 +26,5 @@ exports.index = function(req, res){
   var moves = new Shakes(shakesOpts);
   var auth_url = moves.authorize({'scope':'activity location'});
 
-  res.render('index', { title: 'Express', auth_url: auth_url, token: t, has_token:hasToken });
+  res.render('index', { title: 'Shakes Example', auth_url: auth_url, token: t, has_token:hasToken });
 };
