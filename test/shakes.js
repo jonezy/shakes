@@ -142,3 +142,30 @@ describe('shakes.token_info()', function() {
     });
   });
 });
+
+describe('shakes.refresh_token()', function() {
+  var moves;
+  beforeEach(function() {
+    moves = new Shakes(validOpts);
+  });
+
+  describe('with token argument', function() {
+    it('should run without error', function() {
+      assert.doesNotThrow( function() {moves.refresh_token('xxxxxxxx');}, Error);
+    });
+
+    it('should execute the callback', function() {
+      var test;
+      moves.refresh_token('xxxxx', function(data) {
+        test = 'executed';
+        assert(test, 'executed', 'expected test to equal executed');
+      });
+    });
+  });
+
+  describe('without token argument', function() {
+    it('should throw an error', function() {
+      assert.throws(function() {moves.refresh_token();}, Error);
+    });
+  });
+});
