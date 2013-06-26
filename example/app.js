@@ -6,6 +6,7 @@
 var express = require('express'),
     routes = require('./routes'),
     auth = require('./routes/auth'),
+    user = require('./routes/user'),
     http = require('http'),
     path = require('path');
 
@@ -28,6 +29,7 @@ app.get('/', routes.index);
 app.get('/auth/token', auth.token);
 app.get('/auth/token_info', auth.token_info);
 app.get('/auth/refresh_token', auth.refresh_token);
+app.get('/profile', user.profile);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
