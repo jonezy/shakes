@@ -23,6 +23,8 @@ exports.index = function(req, res){
       'client_secret': '4D05oDq4qLmd45UZ536TIvSHh7X9PX6C13Whm11_0uD147N8aRN24FizU5fC2NiR'
   };
 
+
+
   var moves = new Shakes(shakesOpts);
   var auth_url = moves.authorize({'scope':'activity location'});
 

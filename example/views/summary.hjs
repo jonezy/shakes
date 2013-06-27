@@ -6,10 +6,8 @@
   </head>
   <body>
     <h1>{{ title }}</h1>
-    {{ #profile }}
-      UserId: {{profile.userId}}<br />
-      First Date: {{firstDate}}<br />
-      Timezone: {{profile.profile.currentTimeZone.id}} <br />
-    {{ /profile }}
+    {{ #summary }}
+      {{ summary }}
+    {{ /summary }}
   </body>
 </html>

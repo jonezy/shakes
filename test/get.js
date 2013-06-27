@@ -18,6 +18,11 @@ describe('shakes.get()', function() {
     it('should create without error', function() {
       moves.get('userProfile',null, 'xxxxxxx', function() {});
     });
+
+    it('should run without error', function() {
+      moves.get('dailySummary', {date:'20130625'}, 'xxxxxxx', function() {});
+
+    });
   });
 
   describe('with invalid arguments', function() {
@@ -31,6 +36,13 @@ describe('shakes.get()', function() {
       it('should throw an error', function() {
         assert.throws(function() { moves.get('cat',null,'', function() {}); }, Error);
       });
+    });
+
+    describe('wth a non object params argument', function() {
+      it('should throw an error', function() {
+        assert.throws(function() { moves.get('userProfile',2,'', function() {}); }, Error);
+      });
+
     });
   });
 });
