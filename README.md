@@ -3,14 +3,19 @@
 Shakes is a wrapper for the [moves api](http://dev.moves-app.com). It
 provides a simple way of accessing your moves data!
 
-    var moves = new Shakes({client_id:'your client
-id',client_secret:'your client secret');
-    moves.authorize() // this will give you the correct url to send your
-users too
-    moves.auth('code returned from above', function(token) {
+    // instantiate shakes like so
+    var moves = new Shakes({client_id:'your clientid',client_secret:'your client secret');
+    
+    // moves.authorize will give you a url to send users to so they can authorize your app
+    var auth_url = moves.authorize() 
+    
+    // with the ?code=xxxx that is returned from above this will give you a valid access token
+    moves.auth('xxxx', function(token) {
       // store the token in a cookie or something
+      req.cookies.token = token.access_token
     });
-    moves.get("dailyActivity", {day:'20130626'}, 'your token from
-cookie', function(data){
-      console.log(data);
+    
+    // call the api using the named endpoint and parameters + token!
+    moves.get("dailyActivity", {day:'20130626'}, req.cookies.token, function(data){
+      res.render('activity', {'activities':data});
     });
