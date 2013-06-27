@@ -64,16 +64,41 @@ describe("shakes with non-empty constructor", function() {
   });
 });
 
-describe("shakes.authorize()", function() {
-
-  describe("with valid options", function() {
     var moves;
     beforeEach(function() {
       moves = new Shakes(validOpts);
     });
+describe("shakes.authorize()", function() {
 
+  describe("with valid options", function() {
     it('should return a string', function() {
       assert(moves.authorize({'redirect_uri':'test', 'scope':'locations'}), typeof(string), 'expected an object');
+    });
+
+    describe('with mobile urlScheme', function() {
+      it('should return a string with the correct url scheme', function() {
+        var opts = {
+          'redirect_url':'test',
+          'scope': 'locations',
+          'urlScheme': 'moves://'
+        };
+
+        var url = moves.authorize(opts);
+        assert(url.substr(0,8), opts.urlScheme);
+      });
+    });
+
+    describe('with browser urlScheme', function() {
+      it('should return a string with the correct url scheme', function() {
+        var opts = {
+          'redirect_url':'test',
+          'scope': 'locations',
+          'urlScheme': 'http://'
+        };
+
+        var url = moves.authorize(opts);
+        assert(url.substr(0,7), opts.urlScheme);
+      });
     });
   });
 
