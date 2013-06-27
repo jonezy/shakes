@@ -2,10 +2,12 @@ var https = require('https');
 var qs = require('querystring');
 var Shakes = require('../../lib/shakes');
 var moment = require('moment');
+var nconf = require('nconf');
 
+nconf.argv().env().file({ file: 'settings.json'});
 var shakesOpts = {
-  'client_id': 'Zq7V9Au1lCPlJy0isXpOVy1Si5EM9U3G',
-  'client_secret': '4D05oDq4qLmd45UZ536TIvSHh7X9PX6C13Whm11_0uD147N8aRN24FizU5fC2NiR'
+  'client_id': nconf.get('client_id'),
+  'client_secret': nconf.get('client_secret')
 };
 
 var moves = new Shakes(shakesOpts);
