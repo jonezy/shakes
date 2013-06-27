@@ -31,6 +31,8 @@ app.get('/auth/token_info', auth.token_info);
 app.get('/auth/refresh_token', auth.refresh_token);
 app.get('/profile', user.profile);
 app.get('/summary/daily/:date?', user.dailySummary);
+app.get('/summary/weekly/:date?', user.weeklySummary);
+app.get('/summary/monthly/:date?', user.monthlySummary);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

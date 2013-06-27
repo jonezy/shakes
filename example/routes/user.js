@@ -23,16 +23,22 @@ exports.profile = function(req, res) {
 };
 
 exports.dailySummary = function(req, res) {
-  var day = moment().format('YYYYMMDD');
-  if(req.params.date) {
-    day = req.params.date;
-  }
-  console.log(day);
-
+  var day = req.params.date ? req.params.date : moment().format('YYYYMMDD');
   moves.get('dailySummary', {date:day}, req.cookies.m_token, function(data) {
-    console.log(data);
-
-    res.render('summary', {'title': 'Daily Summary','summary':JSON.stringify(data)});
+    res.render('summary', {'title': 'Daily Summary','summary':data});
   });
 };
 
+exports.weeklySummary = function(req, res) {
+  var week = req.params.date ? req.params.date : moment().format('YYYY-[W]ww');
+  moves.get('weeklySummary', {week:week}, req.cookies.m_token, function(data) {
+    res.render('summary', {'title': 'Weekly Summary','summary':data});
+  });
+};
+
+exports.monthlySummary = function(req, res) {
+  var month = req.params.date ? req.params.date : moment().format('YYYYMM');
+  moves.get('monthlySummary', {month:month}, req.cookies.m_token, function(data) {
+    res.render('summary', {'title': 'Monthly Summary','summary':data});
+  });
+};
