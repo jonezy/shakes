@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    {{#activity}}
+      {{#activity}}
+      <strong>{{ date }}</strong><br /><br />
+        {{#segments}}
+          Type: {{type}}<br />
+          Start: {{startTime}}<br/>
+          End: {{endTime}}<br/><br />
+
+          {{#place}}
+            <div style="padding-left:10px;">
+
+            Type: {{type}}<br />
+            Lat: {{location.lat}}<br />
+            Lon: {{location.lon}}<br />
+            <br />
+            </div>
+          {{/place}}
+          {{#activities}}
+            <div style="padding-left:10px;">
+              Activity: {{activity}}<br />
+              Duration: {{duration}} (seconds)<br />
+              Distance: {{distance}} (meters)<br />
+              Steps: {{steps}}
+            </div>
+            <br />
+
+          {{/activities}}
+
+            <br /><br/>
+        {{/segments}}
+      {{/activity}}
+    {{/activity}}
+  </body>
+</html>

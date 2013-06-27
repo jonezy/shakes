@@ -30,9 +30,19 @@ app.get('/auth/token', auth.token);
 app.get('/auth/token_info', auth.token_info);
 app.get('/auth/refresh_token', auth.refresh_token);
 app.get('/profile', user.profile);
+
 app.get('/summary/daily/:date?', user.dailySummary);
 app.get('/summary/weekly/:date?', user.weeklySummary);
 app.get('/summary/monthly/:date?', user.monthlySummary);
+
+app.get('/activity/daily/:date?', user.dailyActivity);
+app.get('/activity/weekly/:date?', user.weeklyActivity);
+
+app.get('/places/daily/:date?', user.dailyPlaces);
+app.get('/places/weekly/:date?', user.weeklyPlaces);
+
+app.get('/storyline/daily/:date?', user.dailyStoryline);
+app.get('/storyline/weekly/:date?', user.weeklyStoryline);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -42,3 +42,46 @@ exports.monthlySummary = function(req, res) {
     res.render('summary', {'title': 'Monthly Summary','summary':data});
   });
 };
+
+exports.dailyActivity = function(req, res) {
+  var day = req.params.date ? req.params.date : moment().format('YYYYMMDD');
+  moves.get('dailyActivity', {date:day}, req.cookies.m_token, function(data) {
+    res.render('activity', {'title': 'Daily Activity','activity':data});
+  });
+};
+
+exports.weeklyActivity = function(req, res) {
+  var week = req.params.date ? req.params.date : moment().format('YYYY-[W]ww');
+  moves.get('weeklyActivity', {week:week}, req.cookies.m_token, function(data) {
+    res.render('activity', {'title': 'Weekly Activity','activity':data});
+  });
+};
+
+exports.dailyPlaces = function(req, res) {
+  var day = req.params.date ? req.params.date : moment().format('YYYYMMDD');
+  moves.get('dailyPlaces', {date:day}, req.cookies.m_token, function(data) {
+    res.render('places', {'title': 'Daily Places','activity':data});
+  });
+};
+
+exports.weeklyPlaces = function(req, res) {
+  var week = req.params.date ? req.params.date : moment().format('YYYY-[W]ww');
+  moves.get('weeklyPlaces', {week:week}, req.cookies.m_token, function(data) {
+    res.render('places', {'title': 'Weekly Places','activity':data});
+  });
+};
+
+exports.dailyStoryline = function(req, res) {
+  var day = req.params.date ? req.params.date : moment().format('YYYYMMDD');
+  moves.get('dailyStoryline', {date:day}, req.cookies.m_token, function(data) {
+    console.log(JSON.stringify(data));
+    res.render('storyline', {'title': 'Daily Storyline','activity':data});
+  });
+};
+
+exports.weeklyStoryline = function(req, res) {
+  var week = req.params.date ? req.params.date : moment().format('YYYY-[W]ww');
+  moves.get('weeklyStoryline', {week:week}, req.cookies.m_token, function(data) {
+    res.render('storyline', {'title': 'Weekly Storyline','activity':data});
+  });
+};
