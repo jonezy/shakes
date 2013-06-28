@@ -14,7 +14,7 @@ var expires = 14 * 24 * 3600000; // 2 weeks
 
 exports.token = function(req, res) {
   if(req.query.code) {
-    moves.token(req.query.code, function(t) {
+    moves.token(req.query.code, null, function(t) {
       console.log(t);
       res.clearCookie('m_token');
       res.clearCookie('m_rtoken');
