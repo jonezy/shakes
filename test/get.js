@@ -14,17 +14,6 @@ beforeEach(function() {
 });
 
 describe('shakes.get()', function() {
-  describe('with valid arguments', function() {
-    it('should create without error', function() {
-      moves.get('userProfile',null, 'xxxxxxx', function() {});
-    });
-
-    it('should run without error', function() {
-      moves.get('dailySummary', {date:'20130625'}, 'xxxxxxx', function() {});
-
-    });
-  });
-
   describe('with invalid arguments', function() {
     describe('with non existant endpoint', function() {
       it('should throw an error', function() {

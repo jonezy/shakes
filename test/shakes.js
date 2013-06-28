@@ -64,10 +64,11 @@ describe("shakes with non-empty constructor", function() {
   });
 });
 
-    var moves;
-    beforeEach(function() {
-      moves = new Shakes(validOpts);
-    });
+var moves;
+beforeEach(function() {
+  moves = new Shakes(validOpts);
+});
+
 describe("shakes.authorize()", function() {
 
   describe("with valid options", function() {
@@ -114,24 +115,13 @@ describe("shakes.authorize()", function() {
 });
 
 describe('shakes.token()', function() {
-  var moves;
-  beforeEach(function() {
-    moves = new Shakes(validOpts);
-  });
-
-  describe('with valid options', function() {
-    it('should run without error', function() {
-      assert.doesNotThrow( function() {moves.token({'code':'1234'}); }, Error);
-    });
-  });
-
   describe('with missing options', function() {
     describe('no options', function() {
       it('should return an error', function() {
         assert.throws(function() { moves.token(); }, Error);
       });
-
     });
+
     describe('code option', function() {
       it('should return an error', function() {
         assert.throws(function() { moves.token({});}, Error);
@@ -140,27 +130,7 @@ describe('shakes.token()', function() {
   });
 });
 
-
 describe('shakes.token_info()', function() {
-  var moves;
-  beforeEach(function() {
-    moves = new Shakes(validOpts);
-  });
-
-  describe('with token argument', function() {
-    it('should run without error', function() {
-      assert.doesNotThrow( function() {moves.token_info('xxxxxxxx');}, Error);
-    });
-
-    it('should execute the callback', function() {
-      var test;
-      moves.token_info('xxxxx', function(data) {
-        test = 'executed';
-        assert(test, 'executed', 'expected test to equal executed');
-      });
-    });
-  });
-
   describe('without token argument', function() {
     it('should throw an error', function() {
       assert.throws(function() {moves.token_info();}, Error);
@@ -169,26 +139,7 @@ describe('shakes.token_info()', function() {
 });
 
 describe('shakes.refresh_token()', function() {
-  var moves;
-  beforeEach(function() {
-    moves = new Shakes(validOpts);
-  });
-
-  describe('with token argument', function() {
-    it('should run without error', function() {
-      assert.doesNotThrow( function() {moves.refresh_token('xxxxxxxx');}, Error);
-    });
-
-    it('should execute the callback', function() {
-      var test;
-      moves.refresh_token('xxxxx', function(data) {
-        test = 'executed';
-        assert(test, 'executed', 'expected test to equal executed');
-      });
-    });
-  });
-
-  describe('without token argument', function() {
+    describe('without token argument', function() {
     it('should throw an error', function() {
       assert.throws(function() {moves.refresh_token();}, Error);
     });
