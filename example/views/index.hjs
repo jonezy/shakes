@@ -3,6 +3,7 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
   {{ >content }}
@@ -10,6 +11,7 @@
     <p>Welcome to {{ title }}</p>
     <a href="{{ auth_url }}">Authorize</a>
 
+    <a href="{{ mobile_auth_url }}">Mobile Authorize</a>
     {{#token}}
       <h2>Current Token</h2>
       <p>{{token}}</p>

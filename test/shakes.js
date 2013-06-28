@@ -81,7 +81,7 @@ describe("shakes.authorize()", function() {
         var opts = {
           'redirect_url':'test',
           'scope': 'locations',
-          'urlScheme': 'moves://'
+          'urlScheme': 'mobile'
         };
 
         var url = moves.authorize(opts);
@@ -94,11 +94,11 @@ describe("shakes.authorize()", function() {
         var opts = {
           'redirect_url':'test',
           'scope': 'locations',
-          'urlScheme': 'http://'
+          'urlScheme': 'web'
         };
 
         var url = moves.authorize(opts);
-        assert(url.substr(0,7), opts.urlScheme);
+        assert(url.substr(0,7), 'http://');
       });
     });
   });
