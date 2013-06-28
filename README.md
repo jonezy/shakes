@@ -26,10 +26,6 @@ provides a simple way of accessing your moves data!
 
     git clone git@github.com:jonezy/shakes.git
     
-### Install grunt
-
-    npm install -g grunt
-    
 ### Install dependencies
 
     cd shakes && npm install
