@@ -19,3 +19,34 @@ provides a simple way of accessing your moves data!
     moves.get("dailyActivity", {day:'20130626'}, req.cookies.token, function(data){
       res.render('activity', {'activities':data});
     });
+
+# Installation
+
+### Clone the repo
+
+    git clone git@github.com:jonezy/shakes.git
+    
+### Install grunt
+
+    npm install -g grunt
+    
+### Install dependencies
+
+    cd shakes && npm install
+    
+### Setup settings.json
+
+Go to dev.moves-app.com and setup and application, grab the client_id and client_secret and setup settings.json
+
+    mv example/settings.local example/settings.json
+    
+    {
+        'client_id': 'your client id',
+        'client_secret': 'your client secret'
+    }
+    
+### Run the example site
+
+    cd example
+    node app.js
+    
