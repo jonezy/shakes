@@ -124,7 +124,7 @@ describe('shakes.token()', function() {
 
     describe('code option', function() {
       it('should return an error', function() {
-        assert.throws(function() { moves.token({});}, Error);
+        assert.throws(function() { moves.token();}, Error);
       });
     });
   });
