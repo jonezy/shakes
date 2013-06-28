@@ -47,4 +47,7 @@ mobile authentication won't work without it) and setup settings.json
 
     cd example
     node app.js
-    
+
+### Run tests
+
+    mocha -R nyan (the best way to run tests)
