@@ -6,7 +6,8 @@ var nconf = require('nconf');
 nconf.argv().env().file({ file: 'settings.json'});
 var shakesOpts = {
   'client_id': nconf.get('client_id'),
-  'client_secret': nconf.get('client_secret')
+  'client_secret': nconf.get('client_secret'),
+  'redirect_uri': nconf.get('redirect_uri')
 };
 
 var moves = new Shakes(shakesOpts);
@@ -14,7 +15,7 @@ var expires = 14 * 24 * 3600000; // 2 weeks
 
 exports.token = function(req, res) {
   if(req.query.code) {
-    moves.token(req.query.code, null, function(t) {
+    moves.token(req.query.code, function(t) {
       console.log(t);
       res.clearCookie('m_token');
       res.clearCookie('m_rtoken');

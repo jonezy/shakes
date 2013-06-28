@@ -38,6 +38,13 @@ describe("shakes with non-empty constructor", function() {
         }, Error);
       });
     });
+    describe('redirect_uri', function() {
+      it('should throw an error', function() {
+        assert.throws(function() {
+          var moves = new Shakes({'client_id':'1234', 'client_secret':'1234'});
+        }, Error);
+      });
+    });
   });
 
   describe("with valid options", function() {

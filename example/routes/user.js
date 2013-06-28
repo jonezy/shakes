@@ -7,7 +7,8 @@ var nconf = require('nconf');
 nconf.argv().env().file({ file: 'settings.json'});
 var shakesOpts = {
   'client_id': nconf.get('client_id'),
-  'client_secret': nconf.get('client_secret')
+  'client_secret': nconf.get('client_secret'),
+  'redirect_uri': nconf.get('redirect_uri')
 };
 
 var moves = new Shakes(shakesOpts);
