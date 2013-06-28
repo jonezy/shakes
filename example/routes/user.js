@@ -76,7 +76,6 @@ exports.weeklyPlaces = function(req, res) {
 exports.dailyStoryline = function(req, res) {
   var day = req.params.date ? req.params.date : moment().format('YYYYMMDD');
   moves.get('dailyStoryline', {date:day}, req.cookies.m_token, function(data) {
-    console.log(JSON.stringify(data));
     res.render('storyline', {'title': 'Daily Storyline','activity':data});
   });
 };

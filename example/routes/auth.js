@@ -1,4 +1,3 @@
-
 var https = require('https');
 var qs = require('querystring');
 var Shakes = require('../../lib/shakes');

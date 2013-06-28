@@ -1,10 +1,3 @@
-
-/*
- * GET home page.
- */
-
-//var OAuth = require('OAuth');
-
 var https = require('https');
 var qs = require('querystring');
 var Shakes = require('../../lib/shakes');
