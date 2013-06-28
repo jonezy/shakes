@@ -5,7 +5,8 @@ var Shakes = require('../lib/shakes');
 
 var validOpts = {
   'client_id': 'xxxxxxxxxx',
-  'client_secret': 'xxxxxxxxxxxxxx'
+  'client_secret': 'xxxxxxxxxxxxxx',
+  'redirect_uri': 'xxxxxxxxx'
 };
 
 var moves;
