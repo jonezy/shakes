@@ -32,13 +32,15 @@ provides a simple way of accessing your moves data!
     
 ### Setup settings.json
 
-Go to dev.moves-app.com and setup and application, grab the client_id and client_secret and setup settings.json
+Go to dev.moves-app.com and setup and application, grab the client_id, client_secret and redirect_uri (this is important,
+mobile authentication won't work without it) and setup settings.json
 
     mv example/settings.local example/settings.json
     
     {
         'client_id': 'your client id',
-        'client_secret': 'your client secret'
+        'client_secret': 'your client secret',
+        'redirect_uri': 'your redirect_uri'
     }
     
 ### Run the example site
