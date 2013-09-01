@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node example/app.js"
   },
+  "main": "./lib/shakes.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jonezy/shakes.git"
