@@ -43,6 +43,7 @@ app.get('/places/weekly/:date?', user.weeklyPlaces);
 
 app.get('/storyline/daily/:date?', user.dailyStoryline);
 app.get('/storyline/weekly/:date?', user.weeklyStoryline);
+app.get('/storyline/:from/:to?', user.rangeStoryline);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
