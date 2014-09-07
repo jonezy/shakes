@@ -87,3 +87,11 @@ exports.weeklyStoryline = function(req, res) {
     res.render('storyline', {'title': 'Weekly Storyline','activity':data});
   });
 };
+
+exports.rangeStoryline = function(req, res) {
+  var from = req.params.from ? req.params.from : moment().format('YYYYMMDD');
+  var to = req.params.to ? req.params.to : moment().format('YYYYMMDD');
+  moves.get('rangeStoryline', {from:from, to:to}, req.cookies.m_token, function(data) {
+    res.render('storyline', {'title': 'Range Storyline','activity':data});
+  });
+};
